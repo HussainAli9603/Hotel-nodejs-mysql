@@ -1,0 +1,201 @@
+{{#ifEquals user.UserTypeId ADMIN_TYPE_ID}}
+  <nav class="navbar navbar-expand-sm navbar-light bg-white mb-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">Hovago Business</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="/admin">Home</a>-->
+<!--          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/transaction">Transactions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/events">Event</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/hotel">Hotel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/rewards">Rewards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/adminPromotions">Promotions</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {{#if ../user}}
+            <li class="nav-item">
+              <a class="nav-link" href="/chat">Chat</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hi, {{../user.name}}</a>
+              <div class="dropdown-menu">
+                <!-- Button trigger modal -->
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#account-settings-modal">Account
+                  Settings</a>
+                <a href="/user/logout" class="nav-link">Logout</a>
+              </div>
+            </li>
+          {{else}}
+            <li class="nav-item">
+              <a href="/user/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="/user/register" class="nav-link">Register</a>
+            </li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+{{/ifEquals}}
+{{#ifNotEquals user.UserTypeId ADMIN_TYPE_ID}}
+  <nav class="navbar navbar-expand-sm navbar-light bg-white mb-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">Hovago</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="/tempCatalog">TempCatalog</a>-->
+<!--          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href="/hotel">Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/userPromotions">Promotions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/rewards">Rewards</a>
+          </li>
+          <li class="nav-item">
+            <a href="/events" class="nav-link">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/reviews">Feedback</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {{#if ../user}}
+<!--            <li class="nav-item dropdown">-->
+<!--              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Video-->
+<!--                Jots</a>-->
+<!--              <div class="dropdown-menu">-->
+<!--                <a href="/video/listVideos" class="dropdown-item">Videos</a>-->
+<!--                <a href="/video/addVideo" class="dropdown-item">Add Video</a>-->
+<!--              </div>-->
+<!--            </li>-->
+            <li class="nav-item">
+              <a class="nav-link" href="/chat">Chat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cart"><i class="fa fa-shopping-cart"></i></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hi, {{../user.name}}</a>
+              <div class="dropdown-menu">
+                <!-- Button trigger modal -->
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#account-settings-modal">Account Settings</a>
+                <a href="/transaction" class="nav-link">My Transactions</a>
+                <a href="/user/logout" class="nav-link">Logout</a>
+              </div>
+            </li>
+          {{else}}
+            <li class="nav-item">
+              <a href="/user/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="/user/register" class="nav-link">Register</a>
+            </li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+{{/ifNotEquals}}
+
+<!--Account Preferences Modal-->
+{{#if user}}
+  <div class="modal fade" id="account-settings-modal" tabindex="-1" aria-labelledby="account-settings-modal-label"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="account-settings-form" action="/user/update" method="post">
+          <div class="modal-header">
+            <h5 class="modal-title" id="account-settings-modal-label">Account Preferences</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="text-muted font-italic">To update any settings, enter your current password</p>
+            <div class="form-group">
+              <label for="current-pw">Current Password</label>
+              <input type="password" class="form-control" id="current-pw" name="currentPw">
+            </div>
+            <hr>
+            <p class="font-weight-bold">Main Settings</p>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" value="{{user.name}}">
+            </div>
+            <div class="form-group">
+              <label for="email-address">Email Address</label>
+              <input type="email" class="form-control" id="email-address" name="emailAddress" value="{{user.email}}">
+            </div>
+            <hr>
+            <p class="font-weight-bold">Update Password</p>
+            <div class="form-group">
+              <label for="new-password">New Password</label>
+              <input type="password" class="form-control" id="new-password" name="newPassword">
+              <small class="form-text text-danger pw-warning">New passwords do not match</small>
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <input type="password" class="form-control" id="confirm-password" name="confirmPassword">
+              <small class="form-text text-danger pw-warning">New passwords do not match</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!--            <a href="/user/delete" class="btn btn-outline-danger">Delete Account</a>-->
+            <button type="button" onclick="updatePreferencesOnSubmit()" class="btn btn-success ml-auto">
+              Save changes&nbsp;
+              <i class="fa fa-check"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(".pw-warning").hide();
+
+    const updatePreferencesOnSubmit = () => {
+      let pw1 = $("#new-password").val();
+      let pw2 = $("#confirm-password").val();
+
+      if (pw1 !== pw2) {
+        $(".pw-warning").show();
+        return;
+      }
+
+      $("#account-settings-form").submit();
+    };
+  </script>
+
+{{/if}}

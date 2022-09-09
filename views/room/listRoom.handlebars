@@ -1,0 +1,56 @@
+<a href="/admin/hotel/room/{{hotelId}}/addRoom" class="btn btn-info btn-grid my-2">Add Room</a>
+<div class="container">
+{{#if rooms}}
+        <div class="card card-body">
+            <h3 class="text-primary">Room Details</h3>
+            {{#each rooms}}
+                <div class="card border-primary mb-2 w-100 mx-auto">
+                    <div class="card-header">
+                        <h5 class="card-title">{{roomName}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <a href="{{logoURL}}" data-title="{{roomName}}" data-toggle="lightbox">
+                                    <img src="{{logoURL}}" alt="Poster" class="img-thumbnail img-fluid mb-2"
+                                         onerror="this.src='/img/no-image.jpg'" style="max-height:160px">
+                                </a>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p class="font-italic">Room Price</p>
+                                        <p class="text-info">{{roomPrice}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <p>
+                                    <a href="/admin/hotel/editRoom/{{id}}" class="card-link mb-2">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        Edit
+                                    </a>
+                                </p>
+                                <p>
+                                    <a href="/admin/hotel/deleteRoom/{{id}}" class="card-link" data-toggle="confirmation"
+                                       data-title="Confirm delete?">
+                                        <i class="far fa-trash-alt"></i>
+                                        Delete
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+{{else}}
+    <h3>No Details</h3>
+{{/if}}
+
+<script>
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+    });
+</script>

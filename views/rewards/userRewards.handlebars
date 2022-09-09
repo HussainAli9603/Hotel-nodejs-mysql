@@ -1,0 +1,68 @@
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#rewards">Rewards</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#pastRewards">Past Rewards</a>
+    </li>
+</ul>
+<br>
+
+<div id="rewards">
+    <!--
+    <div class="search-container">
+        <form action="/action_page.php">
+            <input type="text" placeholder="Search Rewards Catalogue" name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    -->
+    <div class="container">
+        {{#if rewards}}
+        <div class="card card-body">
+            <h3 class="text-primary">Hotels</h3>
+            {{#each rewards}}
+            <div class="card border-primary mb-2 w-100 mx-auto">
+                <div class="card-header">
+                    <h5 class="card-title">{{location}}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <a href="{{imageURL}}" data-title="{{location}}" data-toggle="lightbox">
+                                <img src="{{imageURL}}" alt="Poster" class="img-thumbnail img-fluid mb-2"
+                                    onerror="this.src='/img/no-image.jpg'" style="max-height:160px">
+                            </a>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-3">
+                                    <p class="font">Amount Off</p>
+                                    <p class="text-info">{{amountOff}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+
+                            document.onclick = function () {
+                                window.location.href = 'http://localhost:5000/rewards/redeemRewards';
+                            }
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+    {{else}}
+    <h3>No Rewards Added</h3>
+    {{/if}}
+
+    <script>
+        $('[data-toggle=confirmation]').confirmation({
+            rootSelector: '[data-toggle=confirmation]',
+        });
+    </script>
+</div>

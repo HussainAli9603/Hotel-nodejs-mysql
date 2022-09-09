@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card card-body">
+        <h3>Update Event</h3>
+        <form action="" method="post">
+            <div class="row mb-3">
+                <div class="col-lg-9">
+                    <div class="form-group">
+                        <label class="font-italic" for="name">Event Name</label>
+                        <input class="form-control mb-1" id="name" name="name" onblur="initialiseTitle()" />
+                    </div>
+                    <div class="form-group">
+                        <label class="font-italic" for="price">Price</label>
+                        <input class="form-control mb-1" id="price" name="price" />
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
+                            <label class="font-italic">Event Date</label>
+                            <input id="datepicker" width="200" name="date" readonly />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="custom-file mb-2">
+                        <input type="file" class="custom-file-input" id="posterUpload" name="posterUpload"
+                            accept="image/png,image/jpeg,image/jpg,image/gif">
+                        <label class="custom-file-label" for="customFile">Choose File</label>
+                    </div>
+                    <div class="text-danger small mb-2" id="posterErr" style="display:none"></div>
+                    <img id="poster" src="/img/no-image.jpg" alt="Poster" class="border img-thumbnail img-fluid">
+                    {{!—- Hidden field to submit URL of poster to the server --}}
+                    <input id="posterURL" type="hidden" name="imageURL">
+                </div>
+            </div>
+    
+            <br>
+            <button id="btnSubmit" type="submit" class="btn btn-primary">Update</button>
+            <a href="/admin/events" class="btn btn-info btn-grid my-2">Cancel</a>
+        </form>
+    </div>
+</div>
+
+<script>
+    $('#datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        uiLibrary: 'bootstrap4',
+        value: moment().format('DD/MM/YYYY'),
+    });
+</script>

@@ -1,0 +1,136 @@
+<!--- Style For Rating Button--->
+<style>
+    .rating {
+        display: inline-block;
+        position: relative;
+        height: 50px;
+        line-height: 50px;
+        font-size: 50px;
+    }
+
+    .rating label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .rating label:last-child {
+        position: static;
+    }
+
+    .rating label:nth-child(1) {
+        z-index: 5;
+    }
+
+    .rating label:nth-child(2) {
+        z-index: 4;
+    }
+
+    .rating label:nth-child(3) {
+        z-index: 3;
+    }
+
+    .rating label:nth-child(4) {
+        z-index: 2;
+    }
+
+    .rating label:nth-child(5) {
+        z-index: 1;
+    }
+
+    .rating label input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    .rating label .icon {
+        float: left;
+        color: transparent;
+    }
+
+    .rating label:last-child .icon {
+        color: #000;
+    }
+
+    .rating:not(:hover) label input:checked~.icon,
+    .rating:hover label:hover input~.icon {
+        color: rgb(255, 217, 0);
+    }
+
+    .rating label input:focus:not(:checked)~.icon:last-child {
+        color: #000;
+        text-shadow: 0 0 5px rgb(255, 217, 0);
+    }
+</style>
+    
+<div class="container">
+    <div class="card card-body">
+        <div class="card card-body">
+            <h2>Update Feedback</h2>
+        </div>
+        <form action="" method="post">
+            <div class="form-group">
+                <label class="font-italic" for="name">Name</label>
+                <input class="form-control mb-1" id="name" name="name" />
+            </div>
+
+            <div class="form-group">
+                <label class="font-italic" for="rating">Rate Us</label>
+                <div>
+                    <div class="rating">
+                        <label>
+                            <input type="radio" name="rating" id="rating1" value="1" />
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" id="rating2" value="2" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" id="rating3" value="3" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" id="rating4" value="4" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" id="rating5" value="5" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="font-italic" for="addComments">Additional Comments</label>
+                <textarea class="form-control" id="addComments" name="addComments" rows="7" maxlength="2000"></textarea>
+            </div>
+            <br>
+            <button id="btnSubmit" type="submit" class="btn btn-primary">Update Feedback</button>
+            <a href="/reviews" class="btn btn-info btn-grid my-2">Cancel</a>
+        </form>
+    </div>
+</div>
+
+
+<!--- Script for Rating Button --->
+<script>
+    $(':radio').change(function () {
+        console.log('New star rating: ' + this.value);
+    });
+</script>

@@ -1,0 +1,10 @@
+{{#each products}}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{hotelName}}</h5>
+      <p class="card-text">{{hotelNO}}</p>
+      <p class="card-text">{{hotelDesc}}</p>
+      <a href="/hotel/room/{{id}}" class="btn btn-success">View Rooms</a>
+    </div>
+  </div>
+{{/each}}

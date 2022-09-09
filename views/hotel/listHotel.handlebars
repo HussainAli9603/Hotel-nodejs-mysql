@@ -1,0 +1,71 @@
+<a href="/admin/hotel/addHotel" class="btn btn-info btn-grid my-2">Add Hotel</a>
+<div class="container">
+	{{#if hotels}}
+	<div class="card card-body">
+		<h3 class="text-primary">Hotel Details</h3>
+		{{#each hotels}}
+		<div class="card border-primary mb-2 w-100 mx-auto">
+			<div class="card-header">
+				<h5 class="card-title">{{hotelName}}</h5>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-2">
+						<a href="{{logoURL}}" data-title="{{hotelName}}" data-toggle="lightbox">
+							<img src="{{logoURL}}" alt="Poster" class="img-thumbnail img-fluid mb-2"
+								onerror="this.src='/img/no-image.jpg'" style="max-height:160px">
+						</a>
+					</div>
+					<div class="col-lg-8">
+						<div class="row">
+							<div class="col-sm-12 col-md-12 col-lg-3">
+								<p class="font-italic">Payment Method</p>
+								<p class="text-info">
+									{{replaceCommas paymentMethod}}
+								</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<p class="font-italic">Hotel Contact Number</p>
+								<p class="text-info">{{hotelNO}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2">
+						<p>
+							<a href="/admin/hotel/editHotel/{{id}}" class="card-link mb-2">
+								<i class="fas fa-pencil-alt"></i>
+								Edit
+							</a>
+						</p>
+            <p>
+              <a href="/admin/hotel/room/{{id}}" class="card-link mb-2">
+                <i class="fas fa-hotel"></i>
+                Rooms
+              </a>
+            </p>
+						<p>
+							<a href="/admin/hotel/deleteHotel/{{id}}" class="card-link" data-toggle="confirmation"
+								data-title="Confirm delete?">
+								<i class="far fa-trash-alt"></i>
+								Delete
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+
+</div>
+{{else}}
+<h3>No Details</h3>
+{{/if}}
+
+<script>
+	$('[data-toggle=confirmation]').confirmation({
+		rootSelector: '[data-toggle=confirmation]',
+	});
+</script>

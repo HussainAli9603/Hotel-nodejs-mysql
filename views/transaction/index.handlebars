@@ -1,0 +1,42 @@
+<h4>Transactions for {{user.name}}</h4>
+<hr>
+<table class="table bg-white"
+       data-toggle="table"
+       data-pagination="true"
+       data-search="true">
+<!--  <caption>Transactions</caption>-->
+  <thead>
+  <tr>
+    <th>Purchase Date</th>
+    <th>Business Name</th>
+    <th>Item Name</th>
+    <th>Quantity</th>
+    <th>Total Paid ($)</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each transactions}}
+    <tr>
+      <td>{{formatDate date "DD MMMM YYYY"}}</td>
+      <td>{{businessName}}</td>
+      <td>{{itemName}}</td>
+      <td>{{quantity}}</td>
+      <td>{{totalPaid}}</td>
+    </tr>
+  {{/each}}
+<!--  <tr>-->
+<!--    <td>2022-06-01</td>-->
+<!--    <td>Ashlee Tan</td>-->
+<!--    <td>Sentosa Staycay</td>-->
+<!--    <td>2</td>-->
+<!--    <td>$1000</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>2022-06-01</td>-->
+<!--    <td>Terry Goh</td>-->
+<!--    <td>Sentosa Staycay</td>-->
+<!--    <td>2</td>-->
+<!--    <td>$1000</td>-->
+<!--  </tr>-->
+  </tbody>
+</table>

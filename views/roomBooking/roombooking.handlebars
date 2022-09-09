@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="card card-body">
+        <h3><u>Room Booking</u></h3>
+        <form action="" method="post">
+            <div class="row mb-3">
+                <div class="col-lg-9">
+                    <br>
+                    {{!--Number of Guests--}}
+                    <div class="form-group">
+                        <div class="row mb-2">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                <label class="font-italic">Number of Guests</label>
+                                <br>
+                                {{!-- Num of Guest --}}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="numofGuest"
+                                           id="guest1" value="1"
+                                           onclick="ensureOneCheck('numofGuest', 'numofGuestErr', 'btnSubmit')">
+                                    <label class="form-check-label" for="guest1">1</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="numofGuest"
+                                           id="guest2" value="2"
+                                           onclick="ensureOneCheck('numofGuest', 'numofGuestErr', 'btnSubmit')">
+                                    <label class="form-check-label" for="guest2">2</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="numofGuest"
+                                       id="guest3" value="3"
+                                       onclick="ensureOneCheck('numofGuest', 'numofGuestErr', 'btnSubmit')">
+                                <label class="form-check-label" for="guest3">3</label>
+                            </div>
+
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="numofGuest"
+                                       id="guest4" value="4"
+                                       onclick="ensureOneCheck('numofGuest', 'numofGuestErr', 'btnSubmit')">
+                                <label class="form-check-label" for="guest4">4</label>
+                            </div>
+
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="numofGuest"
+                                       id="guest5" value="5"
+                                       onclick="ensureOneCheck('numofGuest', 'numofGuestErr', 'btnSubmit')">
+                                <label class="form-check-label" for="guest5">5</label>
+                            </div>
+                                <p class="text-danger m-0" id="numofGuestErr" style="display:none">Please the number of guest : </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{!-- Start Date --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
+                        <label class="font-italic">Start Date</label>
+                        <input id="datepicker" width="200" name="startDate" readonly />
+                    </div>
+
+                    {{!-- End Date --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
+                        <label class="font-italic">End Date</label>
+                        <input id="datepicker" width="200" name="endDate" readonly />
+                    </div>
+
+                    {{!-- Type of Room --}}
+
+                    <button id="btnSubmit" type="submit" class="btn btn-primary">Add
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

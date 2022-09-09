@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="container">
+        <div class="card card-body">
+            <h1>Add Rewards</h1>
+            <br>
+            <form action="" method="post">
+                <div class="form-group">
+                    <label class="font" for="location">Location</label>
+                    <input class="form-control" id="location" name="location" />
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="custom-file mb-2">
+                        <input type="file" class="custom-file-input" id="posterUpload" name="posterUpload"
+                            accept="image/png,image/jpeg,image/jpg,image/gif">
+                        <label class="custom-file-label" for="customFile">Choose File</label>
+                    </div>
+                    <div class="text-danger small mb-2" id="posterErr" style="display:none"></div>
+                    <img id="poster" src="/img/no-image.jpg" alt="Poster" class="border img-thumbnail img-fluid">
+                    {{!—- Hidden field to submit URL of poster to the server --}}
+                    <input id="posterURL" type="hidden" name="imageURL">
+                </div>
+
+                <div class="form-group">
+                    <label class="font" for="amountOff">Amount Off</label>
+                    <input class="form-control" id="amountOff" name="amountOff" />
+                </div>
+
+                <div class="form-group">
+                    <label class="font" for="points">Points</label>
+                    <input class="form-control" id="points" name="points" />
+                </div>
+
+                <br>
+                <button id="btnSubmit" type="submit" class="btn btn-primary">Add
+                </button>
+
+                <a href="/admin/rewards" class="btn btn-info btn-grid my-2">Cancel</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

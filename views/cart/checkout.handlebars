@@ -1,0 +1,148 @@
+<div class="card">
+  <div class="card-body text-center">
+    <h3 class="card-title font-weight-bold">Checkout Order</h3>
+    <!-- the checkout steps -->
+    <div class="row">
+      <div class="col-md-4 font-weight-bold">
+        <i class="fa fa-dollar-sign fa-3x m-3"></i>
+        <h5 class="font-weight-bold">Step 1</h5>
+        <h6 class="font-weight-bold">Select Payment</h6>
+      </div>
+      <div class="col-md-4">
+        <i class="fa fa-dollar-sign fa-3x m-3"></i>
+        <h5>Step 2</h5>
+        <h6>Make Payment</h6>
+      </div>
+      <div class="col-md-4">
+        <i class="fa fa-dollar-sign fa-3x m-3"></i>
+        <h5>Step 3</h5>
+        <h6>Redeem and Enjoy</h6>
+      </div>
+    </div>
+    <hr>
+    <!-- amount due -->
+    {{#if amountDue}}
+      <div class="row">
+        <div class="col-md-12">
+          <h5 class="font-weight-bold">Amount Due</h5>
+          <h4 class="font-weight-bold">${{amountDue}}</h4>
+        </div>
+      </div>
+    {{/if}}
+    <!-- payment choices -->
+    {{#ifEquals step 1}}
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h4 class="font-weight-bold">Select payment method to proceed</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <a href="/cart/checkout/credit" class="text-reset">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Credit Card</h5>
+                    <p class="card-text">
+                      <i class="fa fa-credit-card fa-3x m-3"></i>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Paypal</h5>
+                  <p class="card-text">
+                  <div class="row">
+                    <!--                    <i class="fa fa-paypal fa-3x m-3"></i>-->
+                    <img src="/img/cart/pp.png" alt="paypal" class="card-img-bottom"
+                         style="height: 60px; object-fit: contain">
+                  </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    {{/ifEquals}}
+    {{#ifEquals step 2}}
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h4 class="font-weight-bold">Enter Payment Details</h4>
+          <form action="/cart/checkout/credit" method="post">
+            <!--            <div class="form-group">-->
+            <!--              <label>Credit Card No</label>-->
+            <!--              <input type="text" placeholder="1234 - 5678 - 9123 - 4567" class="form-control"-->
+            <!--                     name="creditCardNo"-->
+            <!--                     required>-->
+            <!--            </div>-->
+            <!--            <div class="form-group">-->
+            <!--              <label>Name on Card</label>-->
+            <!--              <input type="text" placeholder="Jane Doe" class="form-control" name="creditCardName"-->
+            <!--                     required>-->
+            <!--            </div>-->
+            <!--            <div class="row">-->
+            <!--              <div class="col-md-8">-->
+            <!--                <div class="form-group">-->
+            <!--                  <label>Expiry Date</label>-->
+            <!--                  <input type="date" placeholder="Jane Doe" class="form-control"-->
+            <!--                         name="creditCardExpiry" min="{{minDateToday}}" required>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--              <div class="col-md-4">-->
+            <!--                <div class="form-group">-->
+            <!--                  <label>CVV</label>-->
+            <!--                  <input type="number" minlength="3" maxlength="3" placeholder="123"-->
+            <!--                         class="form-control"-->
+            <!--                         name="creditCardCVV" required>-->
+            <!--                </div>-->
+            <!--              </div>-->
+                          <input type="text" name="amount" value="{{../amountDue}}" hidden required>
+            <!--              <button type="submit" class="btn btn-warning w-100 mt-3">Pay Now</button>-->
+            <!--            </div>-->
+            <script
+                src="https://checkout.stripe.com/checkout.js"
+                class="stripe-button"
+                data-key="{{../key}}"
+                data-name="Payment to Hovago"
+                data-description="Hotel? Hovago"
+                data-amount="{{../amountDue}}"
+                data-currency="sgd">
+            </script>
+          </form>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+    {{/ifEquals}}
+    {{#ifEquals step 3}}
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="font-weight-bold">Payment Successful</h4>
+          <h5>
+            <i class="fa fa-check-circle fa-3x m-3 text-success"></i>
+            Payment of <b>${{../paymentAmount}}</b> has been made successfully.
+          </h5>
+          <p>
+            <b>{{points}}COMING SOON</b> points have been added to your Rewards.
+          </p>
+          <p class="font-weight-bold">
+            You can redeem purchases under the My Bookings link in the navigation bar.
+          </p>
+          <p>Thanks for using Hovago!</p>
+        </div>
+        <div class="row w-100">
+          <div class="col-md-6">
+            <a href="#" class="btn btn-warning w-75 my-4">Go to My Bookings</a>
+          </div>
+          <div class="col-md-6">
+            <a href="/" class="btn btn-secondary w-75 my-4">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    {{/ifEquals}}
+  </div>
+</div>

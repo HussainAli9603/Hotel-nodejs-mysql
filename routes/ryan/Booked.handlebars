@@ -1,0 +1,118 @@
+<!-- header -->
+<header class="header" id="header">
+    <div class="head-top">
+        <div class="site-name">
+            <span>HOTELS</span>
+        </div>
+        <div class="site-nav">
+            <span id="nav-btn">MENU <i class="fas fa-bars"></i></span>
+        </div>
+    </div>
+
+    <div class="head-bottom flex">
+        <h2>NICE AND COMFORTABLE PLACE TO STAY</h2>
+        <p>Soak up the sun with one of our tanning packages … More than a ⛱ resort …
+            Where the good life is always in season</p>
+        <button type="button" class="head-btn">GET STARTED</button>
+    </div>
+</header>
+<!-- end of header -->
+<!-- side navbar -->
+<div class="sidenav" id="sidenav">
+    <span class="cancel-btn" id="cancel-btn">
+        <i class="fas fa-times"></i>
+    </span>
+
+    <ul class="navbar">
+        <li><a href="/Home.handlebars">home</a></li>
+        <li><a href="#rooms">rooms</a></li>
+    </ul>
+</div>
+<!-- end of side navbar -->
+<!-- fullscreen modal -->
+<div id="modal"></div>
+<!-- end of fullscreen modal -->
+
+
+<section class="rooms sec-width" id="rooms">
+    <div class="rooms-container">
+        <!-- single room -->
+        <article class="room">
+            <div class="room-text">
+                <h3>Booked Room Detail:</h3>
+                <p>Room Name: {{ booking_info.room }}</p><br>
+                <p>Date of Check-in: {{ booking_info.check_in }}</p><br>
+                <p>Date of Check-out: {{ booking_info.check_out }}</p><br>
+                <p>Number of adults: {{ booking_info.adults }}</p><br>
+                <p>Number of children: {{ booking_info.child }}</p><br>
+            </div>  
+        </article>
+        <!-- end of single room -->
+</section>
+
+
+<!-- end of body content -->
+
+<!-- footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <ul class="social-icons">
+                <li class="flex">
+                    <i class="fa fa-twitter fa-2x"></i>
+                </li>
+                <li class="flex">
+                    <i class="fa fa-facebook fa-2x"></i>
+                </li>
+                <li class="flex">
+                    <i class="fa fa-instagram fa-2x"></i>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>Useful Links</h2>
+            <a href="#">Blog</a>
+            <a href="#">Rooms</a>
+            <a href="#">Subscription</a>
+            <a href="#">Gift Card</a>
+        </div>
+
+        <div>
+            <h2>Privacy</h2>
+            <a href="#">Career</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Services</a>
+        </div>
+
+        <div>
+            <h2>Have A Question</h2>
+            <div class="contact-item">
+                <span>
+                    <i class="fas fa-map-marker-alt"></i>
+                </span>
+                <span>
+                    203 Fake St.Mountain View, San Francisco, California, USA
+                </span>
+            </div>
+            <div class="contact-item">
+                <span>
+                    <i class="fas fa-phone-alt"></i>
+                </span>
+                <span>
+                    +84545 37534 48
+                </span>
+            </div>
+            <div class="contact-item">
+                <span>
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span>
+                    info@domain.com
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end of footer -->
+

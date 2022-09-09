@@ -1,0 +1,238 @@
+<!-- header -->
+<header class="header" id="header">
+    <div class="head-top">
+        <div class="site-name">
+            <span>HOTELS</span>
+        </div>
+        <div class="site-nav">
+            <span id="nav-btn">MENU <i class="fas fa-bars"></i></span>
+        </div>
+    </div>
+
+    <div class="head-bottom flex">
+        <h2>NICE AND COMFORTABLE PLACE TO STAY</h2>
+        <h4>Soak up the sun with one of our tanning packages … More than a ⛱ resort …
+            Where the good life is always in season</h4>
+        <button type="button" class="head-btn"><a href="#rooms">GET STARTED</a></button>
+    </div>
+</header>
+<!-- end of header -->
+<!-- side navbar -->
+<div class="sidenav" id="sidenav">
+    <span class="cancel-btn" id="cancel-btn">
+        <i class="fas fa-times"></i>
+    </span>
+
+    <ul class="navbar">
+        <li><a href="#header">home</a></li>
+        <li><a href="Booked.handlebars">booked rooms</a></li>
+        <li><a href="#rooms">rooms</a></li>
+    </ul>
+</div>
+<!-- end of side navbar -->
+<!-- fullscreen modal -->
+<div id="modal"></div>
+<!-- end of fullscreen modal -->
+
+
+<section class="rooms sec-width" id="rooms">
+    <div class="rooms-container">
+        <!-- single room -->
+        <article class="room">
+            <div class="room-image">
+                <img src="/img/img1.jpg" alt="room image">
+            </div>
+            <div class="room-text">
+                <h3 id="Ocean">Ocean Suites Staycaytion package</h3>
+                <p>All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite
+                    facilities with complimentary
+                    amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest
+                    pure white linen and
+                    towels</p>
+                <p class="rate">
+                    <span>$110.00 /</span> Per Night
+                </p>
+                <form method = "post" class="book-form">
+                    <div class="form-item">
+                        <label for="checkin-date">Check In Date: </label>
+                        <input type="date" name="check_in" id="checkin-date">
+                    </div>
+                    <div class="form-item">
+                        <label for="checkout-date">Check Out Date: </label>
+                        <input type="date" name="check_out" id="checkout-date">
+                    </div>
+                    <div class="form-item">
+                        <label for="adult">Adults: </label>
+                        <input type="number" name="adult" min="1" value="1" id="adult">
+                    </div>
+                    <div class="form-item">
+                        <label for="children">Children: </label>
+                        <input type="number" name="children" min="1" value="1" id=  "children">
+                    </div>
+                    <div class="form-item">
+                        <label for="roomId">Id: </label>
+                        <input type="text" value="Ocean" name="room" id="roomId">
+                    </div>
+                    <div class="form-item">
+                        <input onclick="myFunction1()" type="submit" class="btn" value="Book Now">
+                    </div>
+                </form>
+            </div>
+        </article>
+        <!-- end of single room -->
+        <!-- single room -->
+        <article class="room">
+            <div class="room-image">
+                <img src="/img/img2.jpg" alt="room image">
+            </div>
+            <div class="room-text">
+                <h3 id="UniStudioF">Universal studio family package</h3>
+                <p>All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite
+                    facilities with complimentary
+                    amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest
+                    pure white linen and
+                    towels</p>
+                <p class="rate">
+                    <span>$99.00 /</span> Per Night
+                </p>
+                <form method = "post" class="book-form">
+                    <div class="form-item">
+                        <label for="checkin-date">Check In Date: </label>
+                        <input type="date" name="check_in" id="checkin-date">
+                    </div>
+                    <div class="form-item">
+                        <label for="checkout-date">Check Out Date: </label>
+                        <input type="date" name="check_out" id="checkout-date">
+                    </div>
+                    <div class="form-item">
+                        <label for="adult">Adults: </label>
+                        <input type="number" name="adult" min="1" value="1" id="adult">
+                    </div>
+                    <div class="form-item">
+                        <label for="children">Children: </label>
+                        <input type="number" name="children" min="1" value="1" id="children">
+                    </div>
+                    <div class="form-item">
+                        <label for="roomId">Id: </label>
+                        <input type="text" value="USF" name="room" id="roomId">
+                    </div>
+                    <div class="form-item">
+                        <input onclick="myFunction2()" type="submit" class="btn" value="Book Now">
+                    </div>
+                </form>
+            </div>
+        </article>
+        <!-- end of single room -->
+        <!-- single room -->
+        <article class="room">
+            <div class="room-image">
+                <img src="/img/img3.jpg" alt="room image">
+            </div>
+            <div class="room-text">
+                <h3 id="UniStudio">Universal studio adult ticket</h3>
+                <p>All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite
+                    facilities with complimentary
+                    amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest
+                    pure white linen and
+                    towels</p>
+                <p class="rate">
+                    <span>$75.00 /</span> Per Night
+                </p>
+                <form method = "post" class="book-form">
+                    <div class="form-item">
+                        <label for="checkin-date">Check In Date: </label>
+                        <input type="date" name="check_in" id="checkin-date">
+                    </div>
+                    <div class="form-item">
+                        <label for="checkout-date">Check Out Date: </label>
+                        <input type="date" name="check_out" id="checkout-date">
+                    </div>
+                    <div class="form-item">
+                        <label for="adult">Adults: </label>
+                        <input type="number" name="adult" min="1" value="1" id="adult">
+                    </div>
+                    <div class="form-item">
+                        <label for="children">Children: </label>
+                        <input type="number" name="children" min="1" value="1" id="children">
+                    </div>
+                    <div class="form-item">
+                        <label for="roomId">Id: </label>
+                        <input type="text" value="UniStudio" name="room" id="roomId">
+                    </div>
+                    <div class="form-item">
+                        <input onclick="myFunction3()" type="submit" class="btn" value="Book Now">
+                    </div>
+                </form>
+            </div>
+        </article>
+        <!-- end of single room -->
+    </div>
+</section>
+
+
+<!-- end of body content -->
+
+<!-- footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <ul class="social-icons">
+                <li class="flex">
+                    <i class="fa fa-twitter fa-2x"></i>
+                </li>
+                <li class="flex">
+                    <i class="fa fa-facebook fa-2x"></i>
+                </li>
+                <li class="flex">
+                    <i class="fa fa-instagram fa-2x"></i>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Useful Links</h2>
+            <a href="#">Blog</a>
+            <a href="#">Rooms</a>
+            <a href="#">Subscription</a>
+            <a href="#">Gift Card</a>
+        </div>
+
+        <div>
+            <h2>Privacy</h2>
+            <a href="#">Career</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Services</a>
+        </div>
+
+        <div>
+            <h2>Have A Question</h2>
+            <div class="contact-item">
+                <span>
+                    <i class="fas fa-map-marker-alt"></i>
+                </span>
+                <span>
+                    203 Fake St.Mountain View, San Francisco, California, USA
+                </span>
+            </div>
+            <div class="contact-item">
+                <span>
+                    <i class="fas fa-phone-alt"></i>
+                </span>
+                <span>
+                    +84545 37534 48
+                </span>
+            </div>
+            <div class="contact-item">
+                <span>
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span>
+                    info@domain.com
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end of footer -->
+

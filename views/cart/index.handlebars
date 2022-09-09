@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-md-3">
+    <h2>Your Cart</h2>
+  </div>
+  <div class="col-md-9">
+    <p class="align-items-center"><em>Click to edit request</em></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h5>Discounts</h5>
+        <p>To come...</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <!-- Each product item inside cart goes here, with controls for quantity and removal. -->
+    {{#each cartItems}}
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <!--              <img src="{{image}}" alt="{{name}}" class="img-fluid">-->
+              <img
+                  src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg"
+                  alt="{{name}}" class="img-fluid rounded-lg h-100" style="object-fit: cover">
+            </div>
+            <div class="col-md-5">
+              <h5 class="font-weight-bold">{{name}}</h5>
+              <p>{{description}}</p>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <h5 class="font-weight-bold">Quantity</h5>
+                <input class="form-control" type="text" value="{{quantity}}" disabled>
+                <div class="row mt-2">
+                  <div class="col-md-6">
+                    <a href="/cart/removeOne/{{id}}" class="text-reset">
+                      <i class="fa fa-2x fa-minus-circle"></i>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="/cart/addOne/{{id}}" class="text-reset">
+                      <i class="fa fa-2x fa-plus-circle"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="row">
+                <div class="col-md-8">
+                  <h5 class="font-weight-bold">Price</h5>
+                </div>
+                <div class="col-md-3">
+                  <a href="#" data-toggle="modal" data-target="#remove-modal-{{id}}" class="text-reset">
+                    <i class="fa fa-trash-alt fa-2x text-danger"></i>
+                  </a>
+                </div>
+                <div class="col-md-1"></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <h4 class="font-weight-bold text-center">${{totalPrice}}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="remove-modal-{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Remove Item</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you wish to remove the selected item from the cart?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <a href="/cart/remove/{{id}}" class="btn btn-danger">Remove</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+
+    {{#if cartItems}}
+      <!-- Cart total, and checkout button section -->
+      <div class="row mt-4">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="font-weight-bold">Subtotal</h5>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="font-weight-bold text-right">${{subtotal}}</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="font-weight-bold">Discount</h5>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="font-weight-bold text-right">(coming soon)</h5>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="font-weight-bold">Total</h5>
+                </div>
+                <div class="col-md-6">
+                  <!--                <h5 class="font-weight-bold text-right">${{total}}</h5>-->
+                  <h5 class="font-weight-bold text-right">${{subtotal}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <p><em>All prices include GST.</em></p>
+          <div class="d-flex align-items-center h-50">
+            <a href="/cart/checkout" class="btn btn-warning w-100">Proceed to Checkout</a>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <div class="row m-4">
+        <h3 class="font-weight-bold">No items in cart. Add some today!</h3>
+      </div>
+    {{/if}}
+  </div>
+</div>
