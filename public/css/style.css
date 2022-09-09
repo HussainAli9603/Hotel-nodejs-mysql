@@ -1,0 +1,25 @@
+.logo{
+  width:130px;
+  margin:auto;
+}
+
+
+.card-body {
+  background-color: #ffffffcc;
+}
+
+nav.navbar {
+  opacity: 0.8;
+  z-index: 1000;
+}
+
+/*.list-group{*/
+/*    !*max-height: 300px;*!*/
+/*    !*margin-bottom: 10px;*!*/
+/*    overflow: auto;*/
+/*    -webkit-overflow-scrolling: touch;*/
+/*}*/
+
+.list-scrollable {
+  overflow: auto;
+}

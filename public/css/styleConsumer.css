@@ -1,0 +1,9 @@
+body {
+    /*background-color: #fdf6e3;*/
+    background: rgb(255,250,242);
+    background: radial-gradient(circle, rgba(255,250,242,1) 0%, rgba(244,227,197,1) 100%);
+}
+
+nav.navbar {
+    background-color: #f8f9fa;
+}
